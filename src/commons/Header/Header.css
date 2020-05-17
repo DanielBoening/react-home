@@ -1,0 +1,10 @@
+.Header {
+    text-align: start;
+    padding: 20px;
+}
+
+.Header-Title {
+    font-size: large;
+    font-weight: 700;
+    color: white;
+}

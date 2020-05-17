@@ -1,22 +1,12 @@
 import React from 'react';
 import './Home.css';
+import Header from '../../commons/Header/Header';
 
 function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Home">
+      <Header title="Home"/>
+      
     </div>
   );
 }
