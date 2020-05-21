@@ -1,0 +1,66 @@
+.Weather {
+    color: white;
+}
+
+.WeatherMainContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: start;
+    font-size: x-large;
+}
+
+.WeatherNowContainer {
+    display: flex;
+    width: 28rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: large;
+}
+
+.WeatherNowInfoContainer{
+    display:flex;
+    flex-direction: column;
+    align-self:flex-end;
+    padding-left: 15;
+}
+
+.WeatherNowInfoItem {
+    display: flex; 
+    align-items: center;
+    padding-left: 20;
+}
+
+.WeatherNowInfoImage {
+    display: flex; 
+    width: 32px; 
+    height: 32px;
+}
+.WeatherNowInfoLabel{
+    display: flex; 
+    padding-left: 20px;
+    font-size: small;
+}
+
+.WeatherTempNowLabel {
+    align-self: flex-start;
+    font-size: xx-large;
+    text-align: start;
+}
+.WeatherForecastLabel {
+    align-self: flex-start;
+    font-size: small;
+    text-align: start;
+}
+
+.WeatherForecastContainer {
+    display: flex; 
+    justify-content: space-between
+}
+
+.WeatherForecastItem {
+    display: flex; 
+    flex-direction: column;
+    justify-content: start;
+}
