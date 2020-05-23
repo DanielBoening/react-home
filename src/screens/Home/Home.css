@@ -1,4 +1,9 @@
 .Home {
     text-align: flex-start;
 }
-  
+
+.HomeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

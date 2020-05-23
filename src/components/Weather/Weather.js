@@ -29,27 +29,31 @@ function renderForecast() {
 function renderWeatherNow() {
   return (
     <div className="WeatherNowContainer">
-              <div>
-                <img style={{ width: 128, height:128 }}  src={weatherIcon}/>
-                <div className="WeatherTempNowLabel" >5 &deg; C</div>
-              </div>
-
-            <div className="WeatherNowInfoContainer" layout="column">
-              <div className="WeatherNowInfoItem" >
-                <img className="WeatherNowInfoImage"  src={iconWindspeed}/>
-                <div className="WeatherNowInfoLabel">7 km/h</div>    
-              </div>
-
-              <div className="WeatherNowInfoItem">
-                <img className="WeatherNowInfoImage"  src={iconRainProbability}/>
-                <div className="WeatherNowInfoLabel">0 mm</div>    
-              </div> 
-            </div>
+        <div>
+          <img style={{ width: 128, height:128 }}  src={weatherIcon}/>
+          <div className="WeatherTempNowLabel" >5 &deg; C</div>
         </div>
+
+        <div className="WeatherNowInfoContainer" layout="column">
+          <div className="WeatherNowInfoItem" >
+            <img className="WeatherNowInfoImage"  src={iconWindspeed}/>
+            <div className="WeatherNowInfoLabel">7 km/h</div>    
+          </div>
+
+          <div className="WeatherNowInfoItem">
+            <img className="WeatherNowInfoImage"  src={iconRainProbability}/>
+            <div className="WeatherNowInfoLabel">0 mm</div>    
+          </div> 
+        </div>
+      </div>
   )
 }
 
+
 function Weather(props) {
+  const topic = {
+    id: 10,
+  }
   return (
     <Container>
         <div className="Weather">
