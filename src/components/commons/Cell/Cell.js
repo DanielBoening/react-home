@@ -3,7 +3,7 @@ import './Cell.css';
 
 function Cell(props) {
     return (
-        <div className="Cell">
+        <div className="Cell" style={{color: props.active ? '#FFA500' : '#fff'}}>
             {props.name}
         </div>
     );

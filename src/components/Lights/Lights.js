@@ -17,7 +17,7 @@ function Lights(props) {
                 iconActive={() => IconLightActive} 
                 iconDisabled={() => IconLightDisabled} 
                 />
-            {lightmodes.map(l => <Cell name={l} />)}
+            {lightmodes.map(l => <Cell name={l} active={false}/>)}
           </div>
       </Container>  
     );
