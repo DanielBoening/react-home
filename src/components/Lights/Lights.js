@@ -8,6 +8,7 @@ import {ReactComponent as IconLightDisabled} from './../../assets/icons/lights/l
 
 function Lights(props) {
   const [lights, setLights] = useState([{ title: 'Hell', active: false }, {title:'Dämmerung', active: false}, {title:'Abends', active: false}, {title:'Chillen', active: false}]);
+  
   const changeLight = (light) => {
     let _lights = [...lights];
     const index = _lights.findIndex(l => l.title === light.title);
@@ -18,6 +19,7 @@ function Lights(props) {
     _lights[index] = light;
     setLights(_lights);
   }
+
   const switchOffAllLights = () => {
     const _lights = lights.map(l => ({...l, active: false}));
     setLights(_lights);

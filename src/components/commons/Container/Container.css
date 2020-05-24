@@ -4,4 +4,6 @@
     padding: 20px;
     margin: 20px;
     width: 28rem;
+    max-height: 60%;
+    height: 30rem;
 }
