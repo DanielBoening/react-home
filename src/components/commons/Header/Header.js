@@ -11,7 +11,7 @@ function Header(props) {
     IconDisabled = props.iconDisabled();
   }
   return (
-    <div className="Header">
+    <div className="Header" onClick={props.onClick}>
         {IconActive && props.active && <IconActive className="HeaderIcon"/>}
         {IconDisabled && !props.active && <IconDisabled className="HeaderIcon"/>}
         <div className="Header-Title">{props.title}</div>
