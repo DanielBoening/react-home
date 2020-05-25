@@ -1,5 +1,5 @@
 .ToDo {
-
+    width: 100%;
 }
 
 .ToDoList {
@@ -22,11 +22,17 @@
     padding-right: 20px;
     border: 1px solid white;
     height: 21rem;
+    width: 25rem;
     overflow: scroll;
     scrollbar-width: none;
     overflow-x: hidden;
 }
 
 .ToDoListItem {
-    color: wheat;
+    color: white;
+    list-style-type: none;
+    text-align: start;
+    padding: 20px 0px;
+    margin: 0 20px;
+    border-bottom: 1px solid gray;
 }
