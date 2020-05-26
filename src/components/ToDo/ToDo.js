@@ -4,120 +4,25 @@ import Container from '../commons/Container/Container';
 import Header from '../commons/Header/Header';
 import {ReactComponent as TodoIcon} from '../../assets/icons/todo/playlist-check.svg';
 import {ReactComponent as PlusIcon} from '../../assets/icons/plus.svg';
-import { useAlert } from 'react-alert'
+import Modal from 'react-modal';
+import ToDoModal from './ToDoModal/ToDoModal';
+
+
 
 function ToDo(props) {
+    Modal.setAppElement('#root')
     const [todos, setTodos] = useState([
         {title: 'Einkaufen gehen', active: true}, 
         {title: 'Putzen', active: false}, 
         {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
-        {title: 'Einkaufen gehen', active: true}, 
-        {title: 'Putzen', active: false}, 
-        {title: 'Waschen', active: true},
     ]);
+    const [showDialog, setShowDialog] = useState(false);
     function showNewToDoDialog() {
+        setShowDialog(!showDialog);
+    }
+
+    function closeModal() {
+        setShowDialog(false);
     }
 
     return (
@@ -133,6 +38,11 @@ function ToDo(props) {
                     {todos.map(t => <li className="ToDoListItem">{t.title}</li>)}
                 </ul>
             </div>
+                <ToDoModal 
+                    title={'Neues ToDo'}
+                    visible={showDialog}
+                    onRequestClose={closeModal}
+                    />
         </Container>  
     );
 }

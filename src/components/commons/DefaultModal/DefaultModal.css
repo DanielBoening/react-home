@@ -1,0 +1,17 @@
+.DefaultModalContent {
+}
+
+.CloseButton{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30;
+    width: 30px;
+}
+
+.DefaultModalTitle {
+    font-size: xx-large;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 20px;
+}
