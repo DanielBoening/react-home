@@ -1,10 +1,25 @@
 import React, {useState} from 'react';
 import { DefaultModal } from '../../commons/DefaultModal/DefaultModal';
+import './ToDoModal.css';
 import Header from '../../commons/Header/Header';
 import TextView from '../../commons/TextView/TextView';
 
 function ToDoModal(props) {
     const [title, setTitle] = useState();
+    const [place, setPlace] = useState();
+    const [date, setDate] = useState();
+    
+    function save() {
+        if(props.save) {
+            const todo = {
+                title,
+                place,
+                date
+            };
+            props.save(todo);
+            props.onRequestClose();
+        }
+    }
 
     return (
         <div>
@@ -14,15 +29,16 @@ function ToDoModal(props) {
                 value={title}
                 />
             <TextView 
-                onChange={txt => setTitle(txt)} 
+                onChange={txt => setDate(txt)} 
                 placeholder={'Datum'}
-                value={title}
+                value={date}
                 />
             <TextView
-                onChange={txt => setTitle(txt)} 
+                onChange={txt => setPlace(txt)} 
                 placeholder={'Ort'}
-                value={title}
+                value={place}
                 />
+            <div className="ToDoModalSaveButton" onClick={save}>Speichern</div>
         </div>
     )
 }

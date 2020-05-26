@@ -25,6 +25,10 @@ function ToDo(props) {
         setShowDialog(false);
     }
 
+    function addToDo(todo) {
+        setTodos([ todo, ...todos]);
+    }
+
     return (
         <Container>
             <div className="ToDo">
@@ -42,6 +46,7 @@ function ToDo(props) {
                     title={'Neues ToDo'}
                     visible={showDialog}
                     onRequestClose={closeModal}
+                    save={addToDo}
                     />
         </Container>  
     );
