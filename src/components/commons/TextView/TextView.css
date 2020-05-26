@@ -1,0 +1,18 @@
+.TextView{
+    width: 100%;
+    padding: 20px;
+    padding-left: 0px;
+}
+
+.TextViewInput {
+    width: 80%;
+    font-size: x-large;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+.TextViewPlaceholder {
+    position: absolute;
+    color: grey;
+    font-size: x-large;
+}
