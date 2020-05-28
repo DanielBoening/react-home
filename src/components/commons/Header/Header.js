@@ -21,7 +21,7 @@ function Header(props) {
         {IconDisabled && !props.active && <IconDisabled className="HeaderIcon"/>}
         <div className="Header-Title">{props.title}</div>
         </div>
-        {IconAction && <IconAction className="HeaderIcon" onClick={() => props.action ? props.action() : null}/>}
+        {IconAction && <IconAction className="HeaderIconAction" onClick={() => props.action ? props.action() : null}/>}
     </div>
   );
 }
