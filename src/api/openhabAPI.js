@@ -3,6 +3,7 @@ import Axios from "axios"
 export default class openhabAPI {
 
     static async setItem(item, value) {
+        console.log('setItem', item, value);
         const response = await Axios.post(
             'http://openhab:8080/rest/items/'+item,
             value,
