@@ -1,0 +1,2 @@
+export const SET_WEATHER_ITEM = 'SET_WEATHER_ITEM';
+export const SET_LIGHT_SCENE = 'SET_LIGHT_SCENE';

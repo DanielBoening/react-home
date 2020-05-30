@@ -4,9 +4,12 @@ import Container from '../commons/Container/Container';
 import weatherIcon from '../../assets/icons/weather/cloudy.png'
 import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
+import openhabAPI from '../../api/openhabAPI';
 
 
 function renderForecastItem(weather) {
+  openhabAPI.getItem('Temperature');
+
   return (
     <div className="WeatherForecastItem">
       <img className="WeatherNowInfoImage" src={weatherIcon} />
