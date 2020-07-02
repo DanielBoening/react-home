@@ -4,14 +4,29 @@ import { SET_CURRENT_WEATHER, SET_FORECAST } from "../types"
 const initalState = {
     now: { 
     temperature: '',
-    icon: '',
+    condition: 'wind',
     wind: '',
     rain: '',
   }, 
   forecasts: {
-      1: {},
-      2: {},
-      3: {},
+      1: {
+        temperature: '',
+        condition: 'wind',
+        wind: '',
+        rain: '',
+      },
+      2: {
+        temperature: '',
+        condition: 'wind',
+        wind: '',
+        rain: '',
+      },
+      3: {
+        temperature: '',
+        condition: 'wind',
+        wind: '',
+        rain: '',
+      },
   }
 }
 const weather = (state = initalState, action) => {

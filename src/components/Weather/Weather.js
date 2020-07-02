@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './Weather.css';
 import Container from '../commons/Container/Container';
-import weatherIcon from '../../assets/icons/weather/cloudy.png'
 import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
 import { getCurrentWeather, getForecast } from '../../redux/actions/weather';
@@ -11,7 +10,7 @@ import moment from 'moment';
 function renderForecastItem(forecast) {
   return (
     <div className="WeatherForecastItem">
-      <img className="WeatherNowInfoImage" src={weatherIcon} />
+      <img className="WeatherNowInfoImage" src={require('../../assets/icons/weather/'+forecast.condition+'.png')} />
       <div className="WeatherForecastLabel">{forecast.temperature} &deg; C</div>
       <div className="WeatherForecastLabel">{moment(forecast.date, 'YYYY-MM-DD HH:mm:ss').format('dddd')}</div>
     </div>
@@ -32,7 +31,7 @@ function renderWeatherNow(now) {
   return (
     <div className="WeatherNowContainer">
         <div>
-          <img style={{ width: 128, height:128 }}  src={weatherIcon}/>
+          <img style={{ width: 128, height:128 }}  src={require('../../assets/icons/weather/'+now.condition+'.png')}/>
           <div className="WeatherTempNowLabel" >{now.temperature} &deg; C</div>
         </div>
 
