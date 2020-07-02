@@ -1,25 +1,3 @@
-// const intialState = {
-//     now: {
-//         temp: '-',
-//         rain: '-',
-//         wind: '-'
-//     },
-//     forecast1: {
-//         temp: '-',
-//         rain: '-',
-//         wind: '-'
-//     },
-//     forecast2: {
-//         temp: '-',
-//         rain: '-',
-//         wind: '-'
-//     },
-//     forecast3: {
-//         temp: '-',
-//         rain: '-',
-//         wind: '-'
-//     },
-
 import { SET_LIGHT_SCENE } from "../types"
 
 // }

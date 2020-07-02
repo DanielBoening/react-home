@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Weather.css';
 import Container from '../commons/Container/Container';
 import weatherIcon from '../../assets/icons/weather/cloudy.png'
 import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
-import openhabAPI from '../../api/openhabAPI';
+import { getWeatherNow } from '../../redux/actions/weather';
+import { connect } from 'react-redux';
 
 
 function renderForecastItem(weather) {
-  openhabAPI.getItem('Temperature');
+  
 
   return (
     <div className="WeatherForecastItem">
@@ -29,23 +30,23 @@ function renderForecast() {
   );
 }
 
-function renderWeatherNow() {
+function renderWeatherNow(now) {
   return (
     <div className="WeatherNowContainer">
         <div>
           <img style={{ width: 128, height:128 }}  src={weatherIcon}/>
-          <div className="WeatherTempNowLabel" >5 &deg; C</div>
+          <div className="WeatherTempNowLabel" >{now.temperature} &deg; C</div>
         </div>
 
         <div className="WeatherNowInfoContainer" layout="column">
           <div className="WeatherNowInfoItem" >
             <img className="WeatherNowInfoImage"  src={iconWindspeed}/>
-            <div className="WeatherNowInfoLabel">7 km/h</div>    
+            <div className="WeatherNowInfoLabel">{now.wind} km/h</div>    
           </div>
 
           <div className="WeatherNowInfoItem">
             <img className="WeatherNowInfoImage"  src={iconRainProbability}/>
-            <div className="WeatherNowInfoLabel">0 mm</div>    
+            <div className="WeatherNowInfoLabel">{now.rain} mm</div>    
           </div> 
         </div>
       </div>
@@ -54,9 +55,14 @@ function renderWeatherNow() {
 
 
 function Weather(props) {
-  const topic = {
-    id: 10,
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      props.getWeatherNow();
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
   return (
     <Container>
         <div className="Weather">
@@ -64,7 +70,7 @@ function Weather(props) {
             <div style={{fontSize: 64, fontWeight: 400}}>14:20</div>
             <h3>Donnerstag, 21.05.</h3> 
             <div style={{ paddingTop: 20}}>
-              {renderWeatherNow()}
+              {renderWeatherNow(props.weather.now)}
             </div>
           </div>
           <div className="Seperator"/>
@@ -73,5 +79,11 @@ function Weather(props) {
     </Container>  
   );
 }
+const mapStateToProps = state => ({
+  weather: state.weather
+})
 
-export default Weather;
+const mapDispatchToProps = dispatch => ({
+  getWeatherNow: () => dispatch(getWeatherNow()),
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Weather);

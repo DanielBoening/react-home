@@ -14,7 +14,7 @@ export const getLightScene = scene => async dispatch => {
 
 export const switchLightScene = scene => async dispatch => {
     const value = scene.active ? 'OFF' : 'ON';
-    if(value === 'ON');
+    // if(value === 'ON');
     dispatch({
         type: SET_LIGHT_SCENE,
         payload: {

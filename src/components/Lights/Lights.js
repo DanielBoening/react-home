@@ -65,7 +65,7 @@ function Lights(props) {
           <div className="Lights">
             <Header 
                 title={'Licht'} 
-                // active={lights.some(l => l.active === true)}
+                // active={props.lights.some(l => l.active === true)}
                 iconActive={() => IconLightActive} 
                 iconDisabled={() => IconLightDisabled}
                 onClick={switchOffAllLights}
