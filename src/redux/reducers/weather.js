@@ -1,4 +1,4 @@
-import { SET_WEATHER_NOW } from "../types"
+import { SET_CURRENT_WEATHER } from "../types"
 
 // }
 const initalState = {
@@ -13,7 +13,7 @@ const initalState = {
 const weather = (state = initalState, action) => {
     const payload = action.payload;
     switch (action.type) {
-        case SET_WEATHER_NOW:
+        case SET_CURRENT_WEATHER:
             return { ...state, now: payload };
         default:
             return state

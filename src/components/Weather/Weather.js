@@ -4,7 +4,7 @@ import Container from '../commons/Container/Container';
 import weatherIcon from '../../assets/icons/weather/cloudy.png'
 import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
-import { getWeatherNow } from '../../redux/actions/weather';
+import { getCurrentWeather } from '../../redux/actions/weather';
 import { connect } from 'react-redux';
 
 
@@ -57,7 +57,7 @@ function renderWeatherNow(now) {
 function Weather(props) {
   useEffect(() => {
     const interval = setInterval(() => {
-      props.getWeatherNow();
+      props.getCurrentWeather();
     }, 1000);
     return () => {
       clearInterval(interval);
@@ -84,6 +84,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getWeatherNow: () => dispatch(getWeatherNow()),
+  getCurrentWeather: () => dispatch(getCurrentWeather()),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Weather);
