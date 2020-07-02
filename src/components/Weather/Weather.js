@@ -4,28 +4,26 @@ import Container from '../commons/Container/Container';
 import weatherIcon from '../../assets/icons/weather/cloudy.png'
 import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
-import { getCurrentWeather } from '../../redux/actions/weather';
+import { getCurrentWeather, getForecast } from '../../redux/actions/weather';
 import { connect } from 'react-redux';
 
 
-function renderForecastItem(weather) {
-  
-
+function renderForecastItem(forecast) {
   return (
     <div className="WeatherForecastItem">
       <img className="WeatherNowInfoImage" src={weatherIcon} />
-      <div className="WeatherForecastLabel">5 &deg; C</div>
-      <div className="WeatherForecastLabel">Montag</div>
+      <div className="WeatherForecastLabel">{forecast.temperature} &deg; C</div>
+      <div className="WeatherForecastLabel">{forecast.date}</div>
     </div>
   )
 }
 
-function renderForecast() {
+function renderForecast(forecasts) {
   return (
     <div className="WeatherForecastContainer">
-      {renderForecastItem()}
-      {renderForecastItem()}
-      {renderForecastItem()}
+      {renderForecastItem(forecasts[1])}
+      {renderForecastItem(forecasts[2])}
+      {renderForecastItem(forecasts[3])}
     </div>
   );
 }
@@ -58,6 +56,10 @@ function Weather(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       props.getCurrentWeather();
+      //refactor so days are only set in actions
+      props.getForecast(1);
+      props.getForecast(2);
+      props.getForecast(3);
     }, 1000);
     return () => {
       clearInterval(interval);
@@ -74,7 +76,7 @@ function Weather(props) {
             </div>
           </div>
           <div className="Seperator"/>
-          {renderForecast()}
+          {renderForecast(props.weather.forecasts)}
         </div>
     </Container>  
   );
@@ -85,5 +87,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCurrentWeather: () => dispatch(getCurrentWeather()),
+  getForecast: day => dispatch(getForecast(day)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Weather);
