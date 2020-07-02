@@ -6,14 +6,14 @@ import iconWindspeed from '../../assets/icons/weather/wind.png'
 import iconRainProbability from '../../assets/icons/weather/rain.png'
 import { getCurrentWeather, getForecast } from '../../redux/actions/weather';
 import { connect } from 'react-redux';
-
+import moment from 'moment';
 
 function renderForecastItem(forecast) {
   return (
     <div className="WeatherForecastItem">
       <img className="WeatherNowInfoImage" src={weatherIcon} />
       <div className="WeatherForecastLabel">{forecast.temperature} &deg; C</div>
-      <div className="WeatherForecastLabel">{forecast.date}</div>
+      <div className="WeatherForecastLabel">{moment(forecast.date, 'YYYY-MM-DD HH:mm:ss').format('dddd')}</div>
     </div>
   )
 }
@@ -69,8 +69,8 @@ function Weather(props) {
     <Container>
         <div className="Weather">
           <div className="WeatherMainContainer">
-            <div style={{fontSize: 64, fontWeight: 400}}>14:20</div>
-            <h3>Donnerstag, 21.05.</h3> 
+            <div style={{fontSize: 64, fontWeight: 400}}>{moment().format('hh:mm')}</div>
+            <h3>{moment().format('dddd, d. MMMM')}</h3> 
             <div style={{ paddingTop: 20}}>
               {renderWeatherNow(props.weather.now)}
             </div>
