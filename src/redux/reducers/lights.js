@@ -41,7 +41,7 @@ const lights = (state = initalState, action) => {
                     return { ...state, evening: {... state.evening, active: payload.value === 'ON' ? true : false } }
                 case 'Scene_Chill': 
                     return { ...state, chill: {... state.chill, active: payload.value === 'ON' ? true : false } }
-                case 'AllLights': 
+                case 'Wohnzimmer_Color': 
                     return { ...state, allLights: {... state.allLights, active: payload.value === 'ON' ? true : false } }
             default:
                 return state;

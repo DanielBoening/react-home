@@ -10,24 +10,6 @@ import { getLightScene, switchLightScene } from '../../redux/actions/lights';
 import { connect } from 'react-redux';
 
 function Lights(props) {
-  // const [lights, setLights] = useState([{ 
-  //   title: 'Hell', 
-  //   id: 'Scene_Bright',
-  //   active: false 
-  // }, {
-  //   title:'Dämmerung', 
-  //   id: "Scene_Dusk",
-  //   active: false
-  // }, {
-  //   title:'Abends',
-  //   id: 'Scene_Evening',
-  //   active: false
-  // }, {
-  //   title:'Chillen', 
-  //   id: 'Scene_Chill',
-  //   active: false
-  // }]);
-  // console.log('props', props);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,31 +23,25 @@ function Lights(props) {
       clearInterval(interval);
     };
   }, []);
- 
-  
-  const changeLight = (light) => {
-    // let _lights = [...lights];
-    // const index = _lights.findIndex(l => l.title === light.title);
-    // if(!light.active) {
-    //   _lights = _lights.map(l => ({...l, active: false}));
-    // }
-    // light.active = !light.active;
-    // _lights[index] = light;
-    // setLights(_lights);
-    openhabAPI.setItem(light.id, light.active ? 'ON' : 'OFF');
-  }
 
   const switchOffAllLights = () => {
-    // const _lights = lights.map(l => ({...l, active: false}));
-    // setLights(_lights);
     openhabAPI.setItem('Wohnzimmer_Color', 'OFF');
+  }
+  const hasAciveLight = () => {
+    if(!props.lights){
+      return false;
+    }
+    return props.lights.bright.active
+        || props.lights.dusk.active
+        || props.lights.evening.active
+        || props.lights.chill.active;
   }
     return (
       <Container>
           <div className="Lights">
             <Header 
                 title={'Licht'} 
-                // active={props.lights.some(l => l.active === true)}
+                active={props.lights.allLights.active}
                 iconActive={() => IconLightActive} 
                 iconDisabled={() => IconLightDisabled}
                 onClick={switchOffAllLights}

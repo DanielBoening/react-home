@@ -1,19 +1,27 @@
 describe('Verify Home Screen', () => {
     it('Open Home Screen and check for content', () => {
+        // navigate to our local react app
         cy.visit('http://localhost:3000/')
-        cy.contains('Home') // Check for Header text
+        // Check for Header text
+        cy.contains('Home') 
+        // Check for all three tabs
         cy.get('.Weather')
         cy.get('.Lights')
         cy.get('.ToDo')
     })
 
-    it('Test the lights', () => {
+    it('Test weather', () => {
+        
+    })
+
+    it('Test lights', () => {
         cy.contains('Licht')
         const lights = ['Hell', 'Dämmerung', 'Abend', 'Chillen']
-        //Loop over all lights, activate them and check if only the selected light is active
+        //Loop over all light scenes, activate them and check if only the selected light is active
         lights.forEach((light, index) => {
             cy.contains(light).click()
-            //Check if the current activated light is highlighted
+            //Check if the current activated light scene is highlighted after a short period
+            cy.wait(1500);
             cy.contains(light).should('to.have.css','color', 'rgb(255, 165, 0)')
             
             lights.forEach((light2, index2) => {
@@ -22,9 +30,7 @@ describe('Verify Home Screen', () => {
                     cy.contains(light2).should('to.have.css','color', 'rgb(255, 255, 255)')
                 }
             });
-            //Check if the lights button showing that lights are on
-        });
-        
+        });  
     })
 
     it('Add a new ToDo', () => {
